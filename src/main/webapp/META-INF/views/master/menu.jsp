@@ -84,6 +84,11 @@
 			<acme:menu-suboption code="master.menu.consumer.create-offer" action="/consumer/offer/create"/>
 		</acme:menu-option>
 		
+		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+		</acme:menu-option>
+		
+		
 	</acme:menu-left>
 
 	<acme:menu-right>
