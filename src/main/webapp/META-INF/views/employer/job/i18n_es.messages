@@ -21,4 +21,6 @@ employer.job.form.label.moreInfo = Información adicional
 employer.job.form.label.description = Descripción
 employer.job.form.label.descriptorDescription = Descripción del descriptor
 
+employer.job.form.label.duties = Lista de obligaciones
+
 employer.job.form.button.return = Volver

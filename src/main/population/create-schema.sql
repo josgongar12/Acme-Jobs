@@ -99,7 +99,7 @@
        `id` integer not null,
         `version` integer not null,
         `duty_description` varchar(255),
-        `percentage` integer,
+        `percentage` double precision,
         `title` varchar(255),
         `job_id` integer not null,
         primary key (`id`)

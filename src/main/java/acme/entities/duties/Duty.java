@@ -34,7 +34,7 @@ public class Duty extends DomainEntity {
 	@NotNull
 	@Min(0)
 	@Max(100)
-	private Integer				percentage;
+	private Double				percentage;
 
 	// Relationships --------------------------------------------------------------------------------
 

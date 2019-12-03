@@ -45,9 +45,8 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 		Collection<Duty> result;
 		int jobId;
 
-		String[] aux = request.getServletRequest().getQueryString().trim().split("=");
-		request.getServletRequest().getQueryString();
-		jobId = Integer.parseInt(aux[1]);
+		String[] cadena = request.getServletRequest().getQueryString().trim().split("=");
+		jobId = Integer.parseInt(cadena[1]);
 
 		result = this.repository.findManyByJobId(jobId);
 

@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
+import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -25,24 +27,21 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		/*
-		 * boolean result;
-		 * int dutyId;
-		 * Job job;
-		 * Duty duty;
-		 * Employer employer;
-		 * Principal principal;
-		 * 
-		 * dutyId = request.getModel().getInteger("id");
-		 * duty = this.repository.findOneDutyById(dutyId);
-		 * job = duty.getJob();
-		 * 
-		 * employer = job.getEmployer();
-		 * principal = request.getPrincipal();
-		 * result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getActiveRoleId();
-		 */
+		boolean result;
+		int dutyId;
+		Duty duty;
+		Job job;
+		Employer employer;
+		Principal principal;
 
-		return true;
+		dutyId = request.getModel().getInteger("id");
+		duty = this.repository.findOneDutyById(dutyId);
+		job = duty.getJob();
+		employer = job.getEmployer();
+		principal = request.getPrincipal();
+		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
