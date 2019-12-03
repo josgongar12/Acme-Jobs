@@ -17,6 +17,174 @@
 
 	<import resource="conversion-service.xml" />
 	
+	
+	<!-- Employers -->
+	
+	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="employer1"/>
+		<property name="password" value="employer1"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Employer"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="employer1@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="employer1Employer"/>
+				<ref bean="employer1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="employer1Employer" class="acme.entities.roles.Employer">
+		<property name="company" value="Employer 1, Inc."/>
+		<property name="sector" value="Sector 1"/>
+		<property name="userAccount" ref="employer1UserAccount"/>
+	</bean>
+	
+	<bean name="employer1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="employer1UserAccount"/>
+	</bean>
+	
+	
+	
+	<bean name="employer2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="employer2"/>
+		<property name="password" value="employer2"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Employer"/>
+				<property name="surname" value="Two"/>
+				<property name="email" value="employer2@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="employer2Employer"/>
+				<ref bean="employer2Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="employer2Employer" class="acme.entities.roles.Employer">
+		<property name="company" value="Employer 2, Inc."/>
+		<property name="sector" value="Sector 2"/>
+		<property name="userAccount" ref="employer2UserAccount"/>
+	</bean>
+	
+	<bean name="employer2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="employer2UserAccount"/>
+	</bean>
+	
+	
+	
+	<!-- Jobs -->
+	
+	<bean name="job1" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP1-JOB1"/>
+		<property name="title" value="Title 1"/>
+		<property name="deadline" value="2030/11/11 14:30"/>
+		<property name="salary" value="€ 15,000.50"/>
+		<property name="description" value="This is the first job in the system."/>
+		<property name="moreInfo" value="http://www.example1.com"/>
+		<property name="finalMode" value="false"/>
+		<property name="descriptorDescription" value="First description of descriptor"/>
+		<property name="employer" ref="employer1Employer"/>
+	</bean>
+	
+	<bean name="job2" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP1-JOB2"/>
+		<property name="title" value="Title 2"/>
+		<property name="deadline" value="2025/10/01 11:35"/>
+		<property name="salary" value="€ 20,000"/>
+		<property name="description" value="This is the second job in the system."/>
+		<property name="moreInfo" value="http://www.example2.com"/>
+		<property name="finalMode" value="true"/>
+		<property name="descriptorDescription" value="Second description of descriptor"/>
+		<property name="employer" ref="employer1Employer"/>
+	</bean>
+	
+	<bean name="job3" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP1-JOB3"/>
+		<property name="title" value="Title 3"/>
+		<property name="deadline" value="2020/05/14 10:30"/>
+		<property name="salary" value="€ 55,210.00"/>
+		<property name="description" value="This is the third job in the system."/>
+		<property name="moreInfo"><null/></property>
+		<property name="finalMode" value="true"/>
+		<property name="descriptorDescription" value="Third description of descriptor"/>
+		<property name="employer" ref="employer2Employer"/>
+	</bean>
+	
+	<bean name="job4" class="acme.entities.jobs.Job">
+		<property name="reference" value="EMP2-JOB4"/>
+		<property name="title" value="Title 4"/>
+		<property name="deadline" value="2024/01/01 12:30"/>
+		<property name="salary" value="€ 5,000.82"/>
+		<property name="description" value="This is the fourth job in the system."/>
+		<property name="moreInfo"><null/></property>
+		<property name="finalMode" value="false"/>
+		<property name="descriptorDescription" value="Fourth description of descriptor"/>
+		<property name="employer" ref="employer2Employer"/>
+	</bean>
+	
+	
+	<!-- Duties -->
+	
+	<bean name="Duty01" class="acme.entities.duties.Duty">
+		<property name="title" value="Name of Duty01"/>
+		<property name="dutyDescription" value="This is the description of the first Duty"/>
+		<property name="percentage" value="50"/>
+		<property name="job" ref="job3"/>
+	</bean>
+	
+	<bean name="Duty02" class="acme.entities.duties.Duty">
+		<property name="title" value="Name of Duty02"/>
+		<property name="dutyDescription" value="This is the description of the second Duty"/>
+		<property name="percentage" value="60"/>
+		<property name="job" ref="job2"/>
+	</bean>
+	
+	<bean name="Duty03" class="acme.entities.duties.Duty">
+		<property name="title" value="Name of Duty03"/>
+		<property name="dutyDescription" value="This is the description of the third Duty"/>
+		<property name="percentage" value="75"/>
+		<property name="job" ref="job1"/>
+	</bean>
+	
+	<bean name="Duty04" class="acme.entities.duties.Duty">
+		<property name="title" value="Name of Duty04"/>
+		<property name="dutyDescription" value="This is the description of the fourth Duty"/>
+		<property name="percentage" value="30"/>
+		<property name="job" ref="job4"/>
+	</bean>
+	
+	<bean name="Duty05" class="acme.entities.duties.Duty">
+		<property name="title" value="Name of Duty04"/>
+		<property name="dutyDescription" value="This is the description of the fourth Duty"/>
+		<property name="percentage" value="30"/>
+		<property name="job" ref="job4"/>
+	</bean>
+	
+	<bean name="Duty06" class="acme.entities.duties.Duty">
+		<property name="title" value="Name of Duty04"/>
+		<property name="dutyDescription" value="This is the description of the fourth Duty"/>
+		<property name="percentage" value="30"/>
+		<property name="job" ref="job4"/>
+	</bean>
+	
+	<bean name="Duty07" class="acme.entities.duties.Duty">
+		<property name="title" value="Name of Duty04"/>
+		<property name="dutyDescription" value="This is the description of the fourth Duty"/>
+		<property name="percentage" value="30"/>
+		<property name="job" ref="job1"/>
+	</bean>
+	
+	
 	<!-- Announcements -->
 	
 	<bean id="announcement01" class="acme.entities.announcements.Announcement">
@@ -45,7 +213,7 @@
 		<property name="moment" value="2010/01/10 01:05"/>
 		<property name="moreInfo"><null/></property>
 		<property name="text" value="This is the fourth description"/>
-	</bean>
+	</bean> 
 
 <!-- Request -->
 
