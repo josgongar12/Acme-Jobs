@@ -199,6 +199,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `worker` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `qualifications` integer,
+        `skills` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `hibernate_sequence` (
        `next_val` bigint
     ) engine=InnoDB;
@@ -240,6 +249,7 @@
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+
     alter table `duty` 
        add constraint `FKs2uoxh4i5ya8ptyefae60iao1` 
        foreign key (`job_id`) 
@@ -250,6 +260,7 @@
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+
     alter table `job` 
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
@@ -257,5 +268,10 @@
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `worker` 
+       add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);

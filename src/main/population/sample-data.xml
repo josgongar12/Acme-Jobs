@@ -17,7 +17,6 @@
 
 	<import resource="conversion-service.xml" />
 	
-	
 	<!-- Employers -->
 	
 	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
@@ -79,7 +78,6 @@
 	<bean name="employer2Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="employer2UserAccount"/>
 	</bean>
-	
 	
 	
 	<!-- Jobs -->
@@ -235,6 +233,69 @@
 		<property name="percentage" value="10.5"/>
 		<property name="job" ref="job2"/>
 	</bean>
+
+	<!-- Workers -->
+	
+	<bean name="worker1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="worker1"/>
+		<property name="password" value="worker1"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="worker1@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="worker1Worker"/>
+				<ref bean="worker1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="worker1Worker" class="acme.entities.roles.Worker">
+		<property name="qualifications" value="5"/>
+		<property name="skills" value="Amable y respetuoso"/>
+		<property name="userAccount" ref="worker1UserAccount"/>
+	</bean>
+	
+	<bean name="worker1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="worker1UserAccount"/>
+	</bean>
+	
+	
+	
+	<bean name="worker2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="worker2"/>
+		<property name="password" value="worker2"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker"/>
+				<property name="surname" value="Two"/>
+				<property name="email" value="worker2@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="worker2Worker"/>
+				<ref bean="worker2Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="worker2Worker" class="acme.entities.roles.Worker">
+		<property name="qualifications" value="7"/>
+		<property name="skills" value="Rápido y eficaz"/>
+		<property name="userAccount" ref="worker2UserAccount"/>
+	</bean>
+	
+	<bean name="worker2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="worker2UserAccount"/>
+	</bean>
+	
 	
 	
 	<!-- Announcements -->
@@ -583,5 +644,7 @@
 		<property value="https://www.fantum.com/" name="targetURL"/>
 		<property value="https://www.fantum.com/jingle.mp3" name="jingle"/>
 	</bean>
+	
+
   
 </beans>

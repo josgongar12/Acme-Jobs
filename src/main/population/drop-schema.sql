@@ -31,6 +31,10 @@
        drop 
        foreign key FK_b1gwnjqm6ggy9yuiqm0o4rlmd;
 
+    alter table `worker` 
+       drop 
+       foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
+
     drop table if exists `administrator`;
 
     drop table if exists `announcement`;
@@ -49,7 +53,6 @@
 
     drop table if exists `customization`;
 
-    drop table if exists `duty`;
 
     drop table if exists `employer`;
 
@@ -66,5 +69,7 @@
     drop table if exists `request`;
 
     drop table if exists `user_account`;
+
+    drop table if exists `worker`;
 
     drop table if exists `hibernate_sequence`;

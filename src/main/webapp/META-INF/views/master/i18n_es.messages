@@ -81,10 +81,21 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+
 # master.menu.employer ##########################################################
 
 master.menu.employer = Empleador
 master.menu.employer.list.job = Lista de trabajos
+
+
+# master.menu.worker ##########################################################
+
+master.menu.worker = Trabajador
+
+# master.menu.auditor ##########################################################
+
+master.menu.auditor= Auditor
+
 
 # master.menu.user-account ####################################################
 
