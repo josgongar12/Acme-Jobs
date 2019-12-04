@@ -2,14 +2,10 @@
 package acme.entities.roles;
 
 import javax.persistence.Entity;
-
-import javax.validation.constraints.NotBlank;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 
 import acme.framework.entities.UserRole;
 import lombok.Getter;
@@ -33,6 +29,5 @@ public class Worker extends UserRole {
 
 	@NotBlank
 	private String				skills;
-
 
 }

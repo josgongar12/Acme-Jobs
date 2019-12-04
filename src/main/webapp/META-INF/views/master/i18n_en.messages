@@ -85,11 +85,13 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.employer = Employer
 master.menu.employer.list.job = Job list
+master.menu.employer.list.application = Application list
 
 
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker
+master.menu.worker.list.application = Application list
 
 # master.menu.auditor ##########################################################
 

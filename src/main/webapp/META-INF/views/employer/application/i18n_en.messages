@@ -10,3 +10,5 @@ employer.application.form.button.return = Return
 employer.application.list.label.referenceNumber = Reference Number
 employer.application.list.label.creationMoment = Creation Moment
 employer.application.list.label.status = Status
+
+employer.application.form.label.job.reference = Job reference

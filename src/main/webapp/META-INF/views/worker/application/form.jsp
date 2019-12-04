@@ -22,7 +22,7 @@
 	<acme:form-textarea code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
 	<acme:form-textarea code="worker.application.form.label.qualifications" path="qualifications"/>
-	<acme:form-textarea code="worker.application.form.label.job" path="job.reference"/>
-	
+	<acme:form-textarea code="worker.application.form.label.job.reference" path="job.reference"/>
+		
 	<acme:form-return code="worker.application.form.button.return"/>
 </acme:form>

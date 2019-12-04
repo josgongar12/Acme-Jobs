@@ -19,6 +19,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 	@Autowired
 	EmployerJobRepository repository;
 
+
 	// AbstractShowService<Employer, Job> interface -------------------------------
 
 	@Override
@@ -47,7 +48,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode", "descriptorDescription");
+		request.unbind(entity, model, "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode", "descriptorDescription", "job.reference");
 	}
 
 	@Override
