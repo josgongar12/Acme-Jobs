@@ -80,6 +80,7 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+
 # master.menu.employer ##########################################################
 
 master.menu.employer = Employer
@@ -87,6 +88,10 @@ master.menu.employer = Employer
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker
+
+# master.menu.auditor ##########################################################
+
+master.menu.auditor= Auditor
 
 # master.menu.user-account ####################################################
 

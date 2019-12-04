@@ -85,12 +85,18 @@
 		</acme:menu-option>
 		
 		
+
 		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">
 		</acme:menu-option>
 		
 		
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
 		</acme:menu-option>
+		
+  
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+		</acme:menu-option>
+		
 		
 	</acme:menu-left>
 
