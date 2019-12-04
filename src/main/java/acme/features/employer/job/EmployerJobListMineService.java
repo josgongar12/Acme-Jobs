@@ -16,9 +16,12 @@ import acme.framework.services.AbstractListService;
 @Service
 public class EmployerJobListMineService implements AbstractListService<Employer, Job> {
 
+	// Internal state ---------------------------------------------------------------
+
 	@Autowired
 	EmployerJobRepository repository;
 
+	// AbstractListService<Employer, Job> interface ---------------------------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
@@ -34,6 +37,7 @@ public class EmployerJobListMineService implements AbstractListService<Employer,
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline");
+
 	}
 
 	@Override

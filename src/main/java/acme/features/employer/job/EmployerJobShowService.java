@@ -14,9 +14,12 @@ import acme.framework.services.AbstractShowService;
 @Service
 public class EmployerJobShowService implements AbstractShowService<Employer, Job> {
 
+	// Internal state -------------------------------------------------------------
+
 	@Autowired
 	EmployerJobRepository repository;
 
+	// AbstractShowService<Employer, Job> interface -------------------------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
@@ -32,7 +35,8 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getActiveRoleId();
+
+		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -43,8 +47,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
+		request.unbind(entity, model, "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode", "descriptorDescription");
 	}
 
 	@Override

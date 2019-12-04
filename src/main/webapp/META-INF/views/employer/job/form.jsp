@@ -22,6 +22,11 @@
 	<acme:form-money code="employer.job.form.label.salary" path="salary"/>
 	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
+	<acme:form-url code="employer.job.form.label.descriptorDescription" path="descriptorDescription"/>
+	
+	<acme:form-hidden path="id"/>
+	<acme:form-submit code="employer.job.form.label.duties" action="/employer/duty/list?id=${id}" method="get"/>
 	
 	<acme:form-return code="employer.job.form.button.return"/>
 </acme:form>
+
