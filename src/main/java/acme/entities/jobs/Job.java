@@ -1,4 +1,3 @@
-
 package acme.entities.jobs;
 
 import java.util.Date;
@@ -65,9 +64,4 @@ public class Job extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Employer			employer;
-
-	@NotNull
-	@Valid
-	//@ManyToOne(optional = false)
-	private Descriptor			descriptor;
 }

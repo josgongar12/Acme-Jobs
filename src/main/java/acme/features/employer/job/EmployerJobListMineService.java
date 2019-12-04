@@ -21,12 +21,12 @@ public class EmployerJobListMineService implements AbstractListService<Employer,
 	@Autowired
 	EmployerJobRepository repository;
 
-
 	// AbstractListService<Employer, Job> interface ---------------------------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
+
 		return true;
 	}
 
@@ -36,7 +36,8 @@ public class EmployerJobListMineService implements AbstractListService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "deadline", "title");
+		request.unbind(entity, model, "reference", "title", "deadline");
+
 	}
 
 	@Override

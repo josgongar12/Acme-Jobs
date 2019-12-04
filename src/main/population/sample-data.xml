@@ -644,7 +644,114 @@
 		<property value="https://www.fantum.com/" name="targetURL"/>
 		<property value="https://www.fantum.com/jingle.mp3" name="jingle"/>
 	</bean>
-	
-
   
+  	
+  	<!-- Applications -->
+  	<bean name="application1" class="acme.entities.applications.Application">
+  		<property name="referenceNumber" value="EEEE-JJJJ:WWWW" />
+  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="status" value="accepted" />
+  		<property name="statement" value="Application 1" />
+  		<property name="skills" value="The ability to work under pressure and creativity." />
+  		<property name="qualifications" value="Software Engineer" />
+  		 <property name="employer" ref="employer1Employer" /> 
+  		<property name="worker" ref="worker1Worker" />
+  		<property name="job" ref="job1" />
+  	</bean>
+  	
+  	<bean name="application2" class="acme.entities.applications.Application">
+  		<property name="referenceNumber" value="EEEI-JJJK:WWWX" />
+  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="status" value="pending" />
+  		<property name="statement" value="Application 2" />
+  		<property name="skills" value="Commercial awareness and teamworking skills" />
+  		<property name="qualifications" value="Software Engineer" />
+  		 <property name="employer" ref="employer1Employer" />
+  		<property name="worker" ref="worker1Worker" />
+  		<property name="job" ref="job2" />
+  	</bean>
+  	
+  	<bean name="application3" class="acme.entities.applications.Application">
+  		<property name="referenceNumber" value="EEEJ-JJJL:WWWY" />
+  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="status" value="accepted" />
+  		<property name="statement" value="Application 3" />
+  		<property name="skills" value="Commercial awareness and teamworking skills" />
+  		<property name="qualifications" value="Software Engineer" />
+  		 <property name="employer" ref="employer2Employer" /> 
+  		<property name="worker" ref="worker1Worker" />
+  		<property name="job" ref="job3" />
+  	</bean>
+  	
+  	<bean name="application4" class="acme.entities.applications.Application">
+  		<property name="referenceNumber" value="EEEK-JJJM:WWWZ" />
+  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="status" value="rejected" />
+  		<property name="statement" value="Application 4" />
+  		<property name="skills" value="Commercial awareness and teamworking skills" />
+  		<property name="qualifications" value="Software Engineer" />
+  		 <property name="employer" ref="employer2Employer" /> 
+  		<property name="worker" ref="worker2Worker" />
+  		<property name="job" ref="job3" />
+  	</bean>
+  	
+  	<!-- Workers -->
+  	<bean name="worker1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="worker1"/>
+		<property name="password" value="worker1"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker" />
+				<property name="surname" value="One" />
+				<property name="email" value="worker1@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="worker1Worker" />
+				<ref bean="worker1Authenticated" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="worker1Worker" class="acme.entities.roles.Worker">
+		<property name="qualificationsRecord" value="Software Engineer" />
+		<property name="skillsRecord" value="Creativity and teamworking skills" />
+		<property name="userAccount" ref="worker1UserAccount" />
+	</bean>
+	
+	<bean name="worker1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="worker1UserAccount" />
+	</bean>
+	
+	<bean name="worker2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="worker2"/>
+		<property name="password" value="worker2"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Worker" />
+				<property name="surname" value="Two" />
+				<property name="email" value="worker2@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="worker2Worker" />
+				<ref bean="worker2Authenticated" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="worker2Worker" class="acme.entities.roles.Worker">
+		<property name="qualificationsRecord" value="Software Engineer" />
+		<property name="skillsRecord" value="Creativity and teamworking skills" />
+		<property name="userAccount" ref="worker2UserAccount" />
+	</bean>
+	
+	<bean name="worker2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="worker2UserAccount" />
+	</bean>
+  	
 </beans>
