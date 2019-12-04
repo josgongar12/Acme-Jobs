@@ -8,11 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-employer.duty.list.label.title = Título
-employer.duty.list.label.percentage = Porcentaje (%)
+authenticated.duty.list.label.title = Título
+authenticated.duty.list.label.percentage = Porcentaje (%)
 
-employer.duty.form.label.title = Título
-employer.duty.form.label.dutyDescription = Descripción de obligaciones
-employer.duty.form.label.percentage =  Porcentaje (%)
+authenticated.duty.form.label.title = Título
+authenticated.duty.form.label.dutyDescription = Descripción de obligaciones
+authenticated.duty.form.label.percentage =  Porcentaje (%)
 
-employer.duty.form.button.return = Volver
+authenticated.duty.form.button.return = Volver

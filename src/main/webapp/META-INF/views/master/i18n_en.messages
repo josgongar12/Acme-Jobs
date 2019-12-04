@@ -68,6 +68,7 @@ master.menu.authenticated.offer = Offer list
 master.menu.authenticated.company-record = Company list
 master.menu.authenticated.investor = Investor list
 master.menu.authenticated.challenge = Challenge list
+master.menu.authenticated.job.list= Active Job list
 
 
 # master.menu.provider ########################################################

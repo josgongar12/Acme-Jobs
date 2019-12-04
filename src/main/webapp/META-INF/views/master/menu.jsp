@@ -41,7 +41,9 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.investor" action="/authenticated/investor/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.authenticated.challenge" action="/authenticated/challenge/list"/>		
+			<acme:menu-suboption code="master.menu.authenticated.challenge" action="/authenticated/challenge/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.job.list" action="/authenticated/job/list_mine"/>		
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
