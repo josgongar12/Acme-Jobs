@@ -27,8 +27,11 @@ import lombok.Setter;
 @Setter
 public class Job extends DomainEntity {
 
+	// Serialisation identifier -------------------------------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
 
+	// Attributes ----------------------------------------------------------------------------------
 	@Column(unique = true)
 	@NotBlank
 	@Length(min = 5, max = 10)
@@ -43,7 +46,7 @@ public class Job extends DomainEntity {
 
 	@NotNull
 	@Valid
-	private Money				Salary;
+	private Money				salary;
 
 	@NotBlank
 	private String				description;
@@ -53,7 +56,10 @@ public class Job extends DomainEntity {
 
 	private boolean				finalMode;
 
-	// Relationships
+	@NotBlank
+	private String				descriptorDescription;
+
+	// Relationships -----------------------------------------------------------------------------------
 
 	@NotNull
 	@Valid

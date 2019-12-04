@@ -41,7 +41,9 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.investor" action="/authenticated/investor/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.authenticated.challenge" action="/authenticated/challenge/list"/>		
+			<acme:menu-suboption code="master.menu.authenticated.challenge" action="/authenticated/challenge/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.job.list" action="/authenticated/job/list_mine"/>		
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -84,9 +86,9 @@
 			<acme:menu-suboption code="master.menu.consumer.create-offer" action="/consumer/offer/create"/>
 		</acme:menu-option>
 		
-		
 
 		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">
+			<acme:menu-suboption code="master.menu.employer.list.job" action="/employer/job/list_mine"/>
 		</acme:menu-option>
 		
 		
@@ -96,8 +98,7 @@
   
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 		</acme:menu-option>
-		
-		
+
 	</acme:menu-left>
 
 	<acme:menu-right>
