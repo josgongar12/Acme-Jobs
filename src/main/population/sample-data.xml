@@ -649,6 +649,7 @@
 		<property value="12" name="expirationMonth"/>
 		<property value="2020" name="expirationYear"/>
 		<property value="123" name="cvv"/>
+		<property name="sponsor" ref="sponsor1Sponsor"/>
 	</bean>
 	
 	<bean class="acme.entities.banners.CommercialBanner" id="cBanner2">
@@ -660,6 +661,7 @@
 		<property value="10" name="expirationMonth"/>
 		<property value="2021" name="expirationYear"/>
 		<property value="124" name="cvv"/>
+		<property name="sponsor" ref="sponsor2Sponsor"/>
 	</bean>
 	
 	<bean class="acme.entities.banners.CommercialBanner" id="cBanner3">
@@ -671,14 +673,17 @@
 		<property value="09" name="expirationMonth"/>
 		<property value="2022" name="expirationYear"/>
 		<property value="125" name="cvv"/>
+		<property name="sponsor" ref="sponsor2Sponsor"/>
 
 	</bean>
+	
 	<!-- NonCommercialBanners -->
   	<bean class="acme.entities.banners.NonCommercialBanner" id="noncBanner1">
 		<property value="https://img.meccacola.com/banner1.jpg" name="picture"/>
 		<property value="The spark of life" name="slogan"/>
 		<property value="https://www.meccacola.com/" name="targetURL"/>
 		<property value="https://www.meccacola.com/jingle.mp3" name="jingle"/>
+		<property name="sponsor" ref="sponsor1Sponsor"/>
 	</bean>
 	
 	 <bean class="acme.entities.banners.NonCommercialBanner" id="noncBanner2">
@@ -686,6 +691,7 @@
 		<property value="The person of life" name="slogan"/>
 		<property value="https://www.personcola.com/" name="targetURL"/>
 		<property value="https://www.personcola.com/jingle.mp3" name="jingle"/>
+		<property name="sponsor" ref="sponsor1Sponsor"/>
 	</bean>
 	
   	 <bean class="acme.entities.banners.NonCommercialBanner" id="noncBanner3">
@@ -693,7 +699,67 @@
 		<property value="The fantum of life" name="slogan"/>
 		<property value="https://www.fantum.com/" name="targetURL"/>
 		<property value="https://www.fantum.com/jingle.mp3" name="jingle"/>
+		<property name="sponsor" ref="sponsor2Sponsor"/>
 	</bean>
   
+  <!-- Sponsors -->
+	<bean name="sponsor1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="sponsor1"/>
+		<property name="password" value="sponsor1"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Sponsor"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="sponsor1@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="sponsor1Sponsor"/>
+				<ref bean="sponsor1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
+		<property name="organisationName" value="Universidad de Sevilla"/>
+		<!--<property name="creditCard" value="6432109876543210"/>-->
+		<property name="userAccount" ref="sponsor1UserAccount"/>
+	</bean>
+	
+	<bean name="sponsor1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="sponsor1UserAccount"/>
+	</bean>
+	
+	
+	<bean name="sponsor2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="sponsor2"/>
+		<property name="password" value="sponsor2"/>
+		<property name="enabled" value="true"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Sponsor"/>
+				<property name="surname" value="Two"/>
+				<property name="email" value="sponsor2@acme.com"/>
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="sponsor2Sponsor"/>
+				<ref bean="sponsor2Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
+		<property name="organisationName" value="Universidad de Sevilla"/>
+		<!--<property name="creditCard" value="6432109876543210"/>-->
+		<property name="userAccount" ref="sponsor2UserAccount"/>
+	</bean>
+	
+	<bean name="sponsor2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="sponsor2UserAccount"/>
+	</bean>
   	
 </beans>
