@@ -38,7 +38,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "companySector", "investorSector");
+		request.unbind(entity, model, "companySector", "investorSector", "jobStatus");
 	}
 
 	@Override
@@ -49,8 +49,12 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		Collection<Object[]> companyBySectorCollection = this.repository.getCompanyBySector();
 		Collection<Object[]> investorBySectorCollection = this.repository.getInvestorBySector();
 
+		//
+		//		Collection<Object[]> jobByStatusCollection = this.repository.getJobByStatus();
+
 		Map<String, Long> companyBySectorMap = new HashMap<String, Long>();
 		Map<String, Long> investorBySectorMap = new HashMap<String, Long>();
+		//		Map<String, Long> jobByStatusMap = new HashMap<String, Long>();
 
 		for (Object[] obj : companyBySectorCollection) {
 			companyBySectorMap.put((String) obj[0], (Long) obj[1]);
@@ -62,7 +66,15 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		}
 		result.setInvestorSector(investorBySectorMap);
 
+		//
+		//		for (Object[] obj : jobByStatusCollection) {
+		//			jobByStatusMap.put((String) obj[0], (Long) obj[1]);
+		//		}
+		//		result.setJobStatus(jobByStatusMap);
+		//
+
 		return result;
+
 	}
 
 }

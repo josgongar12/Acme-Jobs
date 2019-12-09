@@ -10,3 +10,5 @@
 
 administrator.dashboard.form.title.company-records = Companies grouped by sector
 administrator.dashboard.form.title.investor = Investor grouped by sector
+
+administrator.dashboard.form.title.jobStatus = Jobs grouped by status

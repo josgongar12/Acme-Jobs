@@ -19,5 +19,6 @@ public class Chart implements Serializable {
 
 	Map<String, Long>			companySector;
 	Map<String, Long>			investorSector;
+	//	Map<String, Long>			jobStatus;
 
 }

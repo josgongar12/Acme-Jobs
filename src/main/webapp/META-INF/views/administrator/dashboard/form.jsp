@@ -19,10 +19,15 @@
 	<acme:form-textbox code="administrator.dashboard.form.label.stddevRewardActiveOffersMin" path="stddevRewardActiveOffersMin" />
 	
 	
-		<acme:form-textbox code="administrator.dashboard.form.label.minimumRewardActiveOffersMax" path="minimumRewardActiveOffersMax" />
+	<acme:form-textbox code="administrator.dashboard.form.label.minimumRewardActiveOffersMax" path="minimumRewardActiveOffersMax" />
 	<acme:form-textbox code="administrator.dashboard.form.label.maximumRewardActiveOffersMax" path="maximumRewardActiveOffersMax" />
 	<acme:form-textbox code="administrator.dashboard.form.label.averageRewardActiveOffersMax" path="averageRewardActiveOffersMax" />
 	<acme:form-textbox code="administrator.dashboard.form.label.stddevRewardActiveOffersMax" path="stddevRewardActiveOffersMax" />
+	
+	
+	<acme:form-textbox code="administrator.dashboard.form.label.averageNumberofJobsPerEmployer" path="averageNumberofJobsPerEmployer" />
+    <acme:form-textbox code="administrator.dashboard.form.label.averageNumberofApplicationsPerWorker" path="averageNumberofApplicationsPerWorker" />
+    <acme:form-textbox code="administrator.dashboard.form.label.averageNumberofApplicationsPerEmployer" path="averageNumberofApplicationsPerEmployer" />
 	
 	<acme:form-return code="administrator.dashboard.form.button.return" />
 </acme:form>

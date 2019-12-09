@@ -53,6 +53,8 @@ public class Job extends DomainEntity {
 	@URL
 	private String				moreInfo;
 
+	//	private JobStatus			status;
+
 	private boolean				finalMode;
 
 	@NotBlank

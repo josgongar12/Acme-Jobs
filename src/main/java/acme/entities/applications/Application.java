@@ -12,8 +12,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-// import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -42,8 +40,9 @@ public class Application extends DomainEntity {
 	private Date				creationMoment;
 
 	@NotNull
-	@Pattern(regexp = "^pending|accepted|rejected")
-	private String				status;
+	//	@Pattern(regexp = "^pending|accepted|rejected")
+
+	private ApplicationStatus	status;
 
 	@NotBlank
 	private String				statement;

@@ -38,6 +38,7 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		dateActual = new Date();
 		dateProperty = job.getDeadline();
 
+		//		result = job.getStatus() == JobStatus.PUBLISHED && dateProperty.after(dateActual);
 		result = job.isFinalMode() && dateProperty.after(dateActual);
 
 		return result;
