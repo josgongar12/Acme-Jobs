@@ -217,6 +217,7 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
+        `credit_card` varchar(255),
         `organisation_name` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
