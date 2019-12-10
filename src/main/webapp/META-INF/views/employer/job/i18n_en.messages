@@ -22,5 +22,6 @@ employer.job.form.label.description = Description
 employer.job.form.label.descriptorDescription = Descriptor description
 
 employer.job.form.label.duties = Duties list
+employer.job.form.label.audit = Audits list
 
 employer.job.form.button.return = Return
