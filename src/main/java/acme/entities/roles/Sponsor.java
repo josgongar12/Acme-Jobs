@@ -4,6 +4,10 @@ package acme.entities.roles;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.CreditCardNumber;
+
+// import org.hibernate.validator.constraints.CreditCardNumber;
+
 import acme.framework.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,18 +15,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Auditor extends UserRole {
-
-	// Serialisation identifier
+public class Sponsor extends UserRole {
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes
-
 	@NotBlank
-	private String				firm;
+	private String				organisationName;
 
-	@NotBlank
-	private String				responsibilityStatement;
+	@CreditCardNumber
+	private String				creditCard;
 
 }

@@ -38,6 +38,18 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `audit` (
+       `id` integer not null,
+        `version` integer not null,
+        `body` varchar(255),
+        `creation_moment` datetime(6),
+        `status` bit not null,
+        `title` varchar(255),
+        `auditor_id` integer not null,
+        `job_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `auditor` (
        `id` integer not null,
         `version` integer not null,
@@ -83,6 +95,7 @@
         `expiration_month` integer,
         `expiration_year` integer,
         `holder_name` varchar(255),
+        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -182,6 +195,7 @@
         `slogan` varchar(255),
         `targeturl` varchar(255),
         `jingle` varchar(255),
+        `sponsor_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -228,6 +242,13 @@
         `creation_moment` datetime(6),
         `title` varchar(255),
         `authenticated_id` integer not null,
+
+    create table `sponsor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        `credit_card` varchar(255),
+        `organisation_name` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -301,6 +322,16 @@
        foreign key (`worker_id`) 
        references `worker` (`id`);
 
+    alter table `audit` 
+       add constraint `FK7x4vmrfrh2nyj9mwha7np1ab4` 
+       foreign key (`auditor_id`) 
+       references `auditor` (`id`);
+
+    alter table `audit` 
+       add constraint `FKijp0sxquetnc9erybuvwrg2e4` 
+       foreign key (`job_id`) 
+       references `job` (`id`);
+
     alter table `auditor` 
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
@@ -310,6 +341,11 @@
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `commercial_banner` 
+       add constraint `FKd0k52g7lcacefcp62kb4p9aor` 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
 
     alter table `consumer` 
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
@@ -331,20 +367,34 @@
        foreign key (`employer_id`) 
        references `employer` (`id`);
 
+
     alter table `message` 
        add constraint `FK28hjkn063wrsjuiyyf8sm3s2v` 
        foreign key (`thread_id`) 
        references `thread` (`id`);
+
+    alter table `non_commercial_banner` 
+       add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
+
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+
     alter table `thread` 
        add constraint `FKkoj53cnb5t2fhfm33gb9bvff1` 
        foreign key (`authenticated_id`) 
        references `authenticated` (`id`);
+
+    alter table `sponsor` 
+       add constraint FK_20xk0ev32hlg96kqynl6laie2 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
 
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
