@@ -100,6 +100,11 @@
   
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
+		<acme:menu-suboption code="master.menu.sponsor.list.non-commercial-banner" action="/sponsor/non-commercial-banner/list_mine"/>
+		<acme:menu-suboption code="master.menu.sponsor.list.commercial-banner" action="/sponsor/commercial-banner/list_mine"/>
+		</acme:menu-option>
 
 	</acme:menu-left>
 

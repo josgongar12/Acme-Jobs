@@ -724,7 +724,7 @@
 	
 	<bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="organisationName" value="Universidad de Sevilla"/>
-		<!--<property name="creditCard" value="6432109876543210"/>-->
+		<property name="creditCard" value="6432109876543210"/>
 		<property name="userAccount" ref="sponsor1UserAccount"/>
 	</bean>
 	
@@ -754,7 +754,7 @@
 	
 	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="organisationName" value="Universidad de Sevilla"/>
-		<!--<property name="creditCard" value="6432109876543210"/>-->
+		<property name="creditCard" value="6432109876543210"/>
 		<property name="userAccount" ref="sponsor2UserAccount"/>
 	</bean>
 	
