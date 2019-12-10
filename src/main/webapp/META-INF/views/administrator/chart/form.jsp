@@ -182,10 +182,10 @@ $(document).ready(function() {
 </script>
 
 
- <h2>
+<%--  <h2>
 	<acme:message code="administrator.dashboard.form.title.jobFinalMode"/>
 </h2>
-
+ 
 <div>
 	<canvas id="canvas4"></canvas>
 </div>
@@ -237,4 +237,4 @@ $(document).ready(function() {
 	});
 });
 </script> 
-
+ --%>

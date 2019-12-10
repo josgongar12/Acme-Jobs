@@ -154,7 +154,7 @@
         `deadline` datetime(6),
         `description` varchar(255),
         `descriptor_description` varchar(255),
-        `final_mode` bit not null,
+        `final_mode` bit,
         `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,
