@@ -177,6 +177,17 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `message` (
+       `id` integer not null,
+        `version` integer not null,
+        `body` varchar(255),
+        `creation_moment` datetime(6),
+        `tags` varchar(255),
+        `title` varchar(255),
+        `thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `non_commercial_banner` (
        `id` integer not null,
         `version` integer not null,
@@ -224,6 +235,13 @@
         `title` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
+
+    create table `thread` (
+       `id` integer not null,
+        `version` integer not null,
+        `creation_moment` datetime(6),
+        `title` varchar(255),
+        `authenticated_id` integer not null,
 
     create table `sponsor` (
        `id` integer not null,
@@ -349,20 +367,34 @@
        foreign key (`employer_id`) 
        references `employer` (`id`);
 
+
+    alter table `message` 
+       add constraint `FK28hjkn063wrsjuiyyf8sm3s2v` 
+       foreign key (`thread_id`) 
+       references `thread` (`id`);
+
     alter table `non_commercial_banner` 
        add constraint `FKpcpr0xb5k7s4rxv5pulstt5v9` 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
+
 
     alter table `provider` 
        add constraint FK_b1gwnjqm6ggy9yuiqm0o4rlmd 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+
+    alter table `thread` 
+       add constraint `FKkoj53cnb5t2fhfm33gb9bvff1` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
     alter table `sponsor` 
        add constraint FK_20xk0ev32hlg96kqynl6laie2 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
 
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
