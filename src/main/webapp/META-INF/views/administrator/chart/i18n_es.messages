@@ -10,3 +10,6 @@
 
 administrator.dashboard.form.title.company-records = Empresas agrupadas por sector
 administrator.dashboard.form.title.investor = Inversores agrupados por sector
+
+administrator.dashboard.form.title.application = Aplicaciones agrupadas por estados
+administrator.dashboard.form.title.jobFinalMode = Trabajos agrupados por status

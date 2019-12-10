@@ -31,4 +31,8 @@ public class Dashboard implements Serializable {
 	Double						averageRewardActiveOffersMax;
 	Double						stddevRewardActiveOffersMax;
 
+	Double						averageNumberofJobsPerEmployer;
+	Double						averageNumberofApplicationsPerWorker;
+	Double						averageNumberofApplicationsPerEmployer;
+
 }

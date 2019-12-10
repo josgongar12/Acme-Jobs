@@ -37,7 +37,9 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
 
-		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		//result = job.getStatus() == JobStatus.PUBLISHED || job.getStatus() == JobStatus.DRAFT && employer.getUserAccount().getId() == principal.getAccountId();
+
+		result = job.getFinalMode() || !job.getFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}

@@ -121,3 +121,120 @@ $(document).ready(function() {
 	});
 });
 </script>
+
+
+<h2>
+	<acme:message code="administrator.dashboard.form.title.application"/>
+</h2>
+
+<div>
+	<canvas id="canvas3"></canvas>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var data = {
+			labels : [
+				<jstl:forEach items="${applicationStatus}" var="section">
+					'<jstl:out value="${section.key}"/>',
+				</jstl:forEach>
+			],
+			
+			datasets : [
+				{
+					data : [
+						<jstl:forEach items="${applicationStatus}" var="section">
+							<jstl:out value="${section.value}"/>,
+						</jstl:forEach>
+					]
+				}
+			]			
+	};
+	
+	var options = {
+			scales : {
+				yAxes : [
+					{
+						ticks : {
+							suggestedMin : 0, 
+							suggestedMax : 8
+						}
+					}
+				]
+			},
+			legend : {
+				display : false
+			}
+	};
+	
+	var canvas, context;
+	
+	canvas = document.getElementById("canvas3");
+	context = canvas.getContext("2d");
+	new Chart(context, {
+		type : "bar", 
+		data : data,
+		options : options
+	});
+});
+
+
+</script>
+
+
+<%--  <h2>
+	<acme:message code="administrator.dashboard.form.title.jobFinalMode"/>
+</h2>
+ 
+<div>
+	<canvas id="canvas4"></canvas>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var data = {
+			labels : [
+				<jstl:forEach items="${jobFinalMode}" var="section">
+					'<jstl:out value="${section.key}"/>',
+				</jstl:forEach>
+			],
+			
+			datasets : [
+				{
+					data : [
+						<jstl:forEach items="${jobFinalMode}" var="section">
+							<jstl:out value="${section.value}"/>,
+						</jstl:forEach>
+					]
+				}
+			]			
+	};
+	
+	var options = {
+			scales : {
+				yAxes : [
+					{
+						ticks : {
+							suggestedMin : 0, 
+							suggestedMax : 8
+						}
+					}
+				]
+			},
+			legend : {
+				display : false
+			}
+	};
+	
+	var canvas, context;
+	
+	canvas = document.getElementById("canvas4");
+	context = canvas.getContext("2d");
+	new Chart(context, {
+		type : "bar", 
+		data : data,
+		options : options
+	});
+});
+</script> 
+ --%>

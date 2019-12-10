@@ -41,7 +41,8 @@ public class AuthenticatedDutyShowService implements AbstractShowService<Authent
 		dateActual = new Date();
 		dateProperty = job.getDeadline();
 
-		result = job.isFinalMode() && dateProperty.after(dateActual);
+		//		result = job.getStatus() == JobStatus.PUBLISHED && dateProperty.after(dateActual);
+		result = job.getFinalMode() && dateProperty.after(dateActual);
 
 		return result;
 	}

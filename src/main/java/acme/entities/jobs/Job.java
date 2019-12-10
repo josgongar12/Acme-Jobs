@@ -53,7 +53,9 @@ public class Job extends DomainEntity {
 	@URL
 	private String				moreInfo;
 
-	private boolean				finalMode;
+	//	private JobStatus			status;
+
+	private Boolean				finalMode;
 
 	@NotBlank
 	private String				descriptorDescription;

@@ -56,4 +56,19 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select stddev(o.maxAmount.amount) from Offer o where o.limitDate > CURRENT_TIMESTAMP")
 	Double stddevRewardActiveOffersMax();
 
+	//average jobs-employer
+	@Query("select avg(select count(j) from Job j where j.employer.id = e.id) from Employer e")
+	Double averageNumberofJobsPerEmployer();
+
+	//	//average applications por worker
+	@Query("select avg(select count(a) from Application a where a.worker.id = w.id) from Worker w")
+	Double averageNumberofApplicationsPerWorker();
+	//
+	//	//average applications por employer
+	//	@Query("select avg(select count(a) from Application a where exists (select j from Job where j.employer.id = e.id and a.job.id = j.id) from Employer e")
+	//	Double averageNumberofApplicationsPerEmployer();
+	@Query("select avg(select count(a) from Application a where a.employer.id = e.id) from Employer e")
+	Double averageNumberofApplicationsPerEmployer();
+	//ratio
+
 }

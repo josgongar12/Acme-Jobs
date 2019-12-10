@@ -18,4 +18,8 @@ administrator.dashboard.form.label.maximumRewardActiveOffersMax =Maximum Reward 
 administrator.dashboard.form.label.averageRewardActiveOffersMax =Average Reward Active Offers (based on maximum reward):
 administrator.dashboard.form.label.stddevRewardActiveOffersMax =Standard Deviation Active Offers (based on maximum reward):
 
+administrator.dashboard.form.label.averageNumberofJobsPerEmployer =  Average number of Jobs per employer:
+administrator.dashboard.form.label.averageNumberofApplicationsPerWorker = Average number of applications per worker:
+administrator.dashboard.form.label.averageNumberofApplicationsPerEmployer = Average number of applications per employer:
+
 administrator.dashboard.form.button.return = Return
