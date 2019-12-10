@@ -11,6 +11,7 @@
 authenticated.audit.form.label.title = Título
 authenticated.audit.form.label.creationMoment = Fecha creación  
 authenticated.audit.form.label.body = Cuerpo
+authenticated.audit.form.label.auditor.firm = Firma del auditor
 
 authenticated.audit.list.label.title = Título
 authenticated.audit.list.label.creationMoment = Fecha creación 

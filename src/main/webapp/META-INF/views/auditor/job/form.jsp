@@ -25,10 +25,9 @@
 	<acme:form-url code="auditor.job.form.label.descriptorDescription" path="descriptorDescription"/>
 	
 	<acme:form-hidden path="id"/>
-	<acme:form-submit code="auditor.job.form.label.auditRecords" action="/authenticated/auditRecord/list?id=${id}" method="get"/>
-	
-	<acme:form-hidden path="id"/>
 	<acme:form-submit code="auditor.job.form.label.duties" action="/authenticated/duty/list?id=${id}" method="get"/>
+	
+	<acme:form-submit code="auditor.job.form.label.audit" action="/authenticated/audit/list?id=${id}" method="get"/>	
 	
 	<acme:form-return code="auditor.job.form.button.return"/>
 </acme:form>

@@ -24,24 +24,6 @@ public class AuthenticatedAuditShowService implements AbstractShowService<Authen
 	@Override
 	public boolean authorise(final Request<Audit> request) {
 		assert request != null;
-
-		/*
-		 * boolean result = false;
-		 * int dutyId;
-		 * Duty duty;
-		 * Job job;
-		 * Date dateActual, dateProperty;
-		 * 
-		 * dutyId = request.getModel().getInteger("id");
-		 * duty = this.repository.findOneDutyById(dutyId);
-		 * job = duty.getJob();
-		 * 
-		 * dateActual = new Date();
-		 * dateProperty = job.getDeadline();
-		 * 
-		 * result = job.isFinalMode() && dateProperty.after(dateActual);
-		 */
-
 		return true;
 	}
 
@@ -51,7 +33,7 @@ public class AuthenticatedAuditShowService implements AbstractShowService<Authen
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "creationMoment", "body");
+		request.unbind(entity, model, "title", "creationMoment", "body", "auditor.firm");
 	}
 
 	@Override

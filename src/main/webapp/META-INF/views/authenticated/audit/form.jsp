@@ -19,6 +19,7 @@
 	<acme:form-textarea code="authenticated.audit.form.label.title" path="title"/>
 	<acme:form-textbox code="authenticated.audit.form.label.creationMoment" path="creationMoment"/>
 	<acme:form-textbox code="authenticated.audit.form.label.body" path="body"/>
+	<acme:form-textbox code="authenticated.audit.form.label.auditor.firm" path="auditor.firm"/>
 	
 	<acme:form-return code="authenticated.audit.form.button.return"/>
 </acme:form>

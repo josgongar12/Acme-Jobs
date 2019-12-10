@@ -22,7 +22,7 @@ public class AuditorJobNoListMineService implements AbstractListService<Auditor,
 	private AuditorJobRepository repository;
 
 
-	// AbstractListService<Auditor, AuditRecord> interface ---------------------------------------------
+	// AbstractListService<Auditor, Job> interface ---------------------------------------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
