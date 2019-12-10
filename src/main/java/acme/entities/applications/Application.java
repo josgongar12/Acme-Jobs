@@ -1,6 +1,7 @@
 
 package acme.entities.applications;
 
+import java.beans.Transient;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -62,11 +63,19 @@ public class Application extends DomainEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Employer			employer;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
 	private Worker				worker;
+
+
+	// Derived attributes
+
+	@Transient
+	public Employer getEmployer() {
+
+		Employer result;
+		result = new Employer();
+		result = this.job.getEmployer();
+
+		return result;
+	}
 
 }
