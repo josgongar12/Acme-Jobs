@@ -695,5 +695,220 @@
 		<property value="https://www.fantum.com/jingle.mp3" name="jingle"/>
 	</bean>
   
+  
+  <!-- Threads -->
+	 <bean class="acme.entities.threads.Thread" name="thread1">
+		<property value="questions and answers" name="title" />
+		<property value="2018/12/11 23:59" name="creationMoment" />
+		<property name="authenticated" ref="authenticated1Authenticated" />
+		<!--  <property name="message" ref="message1" />  -->
+	</bean>  
+	
+	 <bean class="acme.entities.threads.Thread" name="thread2">
+		<property value="questions and answers" name="title" />
+		<property value="2018/12/11 23:59" name="creationMoment" />
+		<property name="authenticated" ref="authenticated1Authenticated" />
+		<!--  <property name="message" ref="message2" />  -->
+	</bean>  
+	
+	 <bean class="acme.entities.threads.Thread" name="thread3">
+		<property value="questions and answers" name="title" />
+		<property value="2018/12/11 23:59" name="creationMoment" />
+		<property name="authenticated" ref="authenticated1Authenticated" />
+		<!--  <property name="message" ref="message3" />  -->
+	</bean>  
+	
+	 <bean class="acme.entities.threads.Thread" name="thread4">
+		<property value="questions and answers" name="title" />
+		<property value="2018/12/11 23:59" name="creationMoment" />
+		<property name="authenticated" ref="authenticated1Authenticated" />
+		<!--  <property name="message" ref="message4" />  -->
+	</bean>  
+	 <bean class="acme.entities.threads.Thread" name="thread5">
+		<property value="questions and answers" name="title" />
+		<property value="2018/12/11 23:59" name="creationMoment" />
+		<property name="authenticated" ref="authenticated1Authenticated" />
+		<!--  <property name="message" ref="message5" />  -->
+	</bean>  
+
+	<!-- Message -->
+
+	 <bean class="acme.entities.messages.Message" name="message1">
+		<property value="hello" name="title" />
+		<property value="2003/12/11 23:59" name="creationMoment" />
+		<property value="stranger, things, happen" name="tags" />
+		<property value="Lorem ipsum sit dolor amet." name="body" />
+		
+		 <property name="thread"  ref="thread1"/> 
+		
+	</bean>
+	
+	 <bean class="acme.entities.messages.Message" name="messageHello2">
+		<property value="hello 2" name="title" />
+		<property value="2003/12/11 23:59" name="creationMoment" />
+		<property value="stranger, things, happen" name="tags" />
+		<property value="Lorem ipsum sit dolor amet." name="body" />
+		
+		 <property name="thread"  ref="thread1"/> 
+		
+	</bean>
+	
+	 <bean class="acme.entities.messages.Message" name="message2">
+		<property value="hello" name="title" />
+		<property value="2003/12/11 23:59" name="creationMoment" />
+		<property value="stranger, things, happen" name="tags" />
+		<property value="Lorem ipsum sit dolor amet." name="body" />
+		
+		 <property name="thread"  ref="thread2"/> 
+		
+	</bean>
+	
+	 <bean class="acme.entities.messages.Message" name="message3">
+		<property value="hello" name="title" />
+		<property value="2003/12/11 23:59" name="creationMoment" />
+		<property value="stranger, things, happen" name="tags" />
+		<property value="Lorem ipsum sit dolor amet." name="body" />
+		
+		 <property name="thread"  ref="thread3"/> 
+		
+	</bean>
+	
+	 <bean class="acme.entities.messages.Message" name="message4">
+		<property value="hello" name="title" />
+		<property value="2003/12/11 23:59" name="creationMoment" />
+		<property value="stranger, things, happen" name="tags" />
+		<property value="Lorem ipsum sit dolor amet." name="body" />
+		
+		 <property name="thread"  ref="thread4"/> 
+		
+	</bean>
+	
+	 <bean class="acme.entities.messages.Message" name="message5">
+		<property value="hello" name="title" />
+		<property value="2003/12/11 23:59" name="creationMoment" />
+		<property value="stranger, things, happen" name="tags" />
+		<property value="Lorem ipsum sit dolor amet." name="body" />
+		
+		 <property name="thread"  ref="thread5"/> 
+		
+	</bean>
+
+	<!-- Authenticated -->
+
+	<bean class="acme.framework.entities.UserAccount" name="authenticated1UserAccount">
+		<property value="authenticated1" name="username" />
+		<property value="authenticated1" name="password" />
+		<property value="true" name="enabled" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property value="Authenticated" name="name" />
+				<property value="One" name="surname" />
+				<property value="authenticated1@acme.com" name="email" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+
+				<ref bean="authenticated1Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="acme.framework.entities.Authenticated" name="authenticated1Authenticated">
+		<property name="userAccount" ref="authenticated1UserAccount" />
+	</bean>
+	
+	<bean class="acme.framework.entities.UserAccount" name="authenticated2UserAccount">
+		<property value="authenticated2" name="username" />
+		<property value="authenticated2" name="password" />
+		<property value="true" name="enabled" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property value="Authenticated" name="name" />
+				<property value="One" name="surname" />
+				<property value="authenticated1@acme.com" name="email" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+
+				<ref bean="authenticated2Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="acme.framework.entities.Authenticated" name="authenticated2Authenticated">
+		<property name="userAccount" ref="authenticated2UserAccount" />
+	</bean>
+	
+	<bean class="acme.framework.entities.UserAccount" name="authenticated3UserAccount">
+		<property value="authenticated3" name="username" />
+		<property value="authenticated3" name="password" />
+		<property value="true" name="enabled" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property value="Authenticated" name="name" />
+				<property value="One" name="surname" />
+				<property value="authenticated1@acme.com" name="email" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+
+				<ref bean="authenticated3Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="acme.framework.entities.Authenticated" name="authenticated3Authenticated">
+		<property name="userAccount" ref="authenticated3UserAccount" />
+	</bean>
+	
+	<bean class="acme.framework.entities.UserAccount" name="authenticated4UserAccount">
+		<property value="authenticated4" name="username" />
+		<property value="authenticated4" name="password" />
+		<property value="true" name="enabled" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property value="Authenticated" name="name" />
+				<property value="One" name="surname" />
+				<property value="authenticated1@acme.com" name="email" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+
+				<ref bean="authenticated4Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="acme.framework.entities.Authenticated" name="authenticated4Authenticated">
+		<property name="userAccount" ref="authenticated4UserAccount" />
+	</bean>
+	
+	<bean class="acme.framework.entities.UserAccount" name="authenticated5UserAccount">
+		<property value="authenticated5" name="username" />
+		<property value="authenticated5" name="password" />
+		<property value="true" name="enabled" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property value="Authenticated" name="name" />
+				<property value="One" name="surname" />
+				<property value="authenticated1@acme.com" name="email" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+
+				<ref bean="authenticated5Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="acme.framework.entities.Authenticated" name="authenticated5Authenticated">
+		<property name="userAccount" ref="authenticated5UserAccount" />
+	</bean>
+  
   	
 </beans>
