@@ -100,6 +100,13 @@ master.menu.auditor.list.job.yes = Job written by editor
 master.menu.auditor.list.job.no = Job not written by editor
 
 
+# master.menu.auditor ##########################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.list.non-commercial-banner = Non commercial banner
+master.menu.sponsor.list.commercial-banner  = Commercial banner
+
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
