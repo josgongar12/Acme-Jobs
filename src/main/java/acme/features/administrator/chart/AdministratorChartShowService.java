@@ -39,7 +39,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		assert entity != null;
 		assert model != null;
 		//"jobStatus"
-		request.unbind(entity, model, "companySector", "investorSector", "applicationStatus");
+		request.unbind(entity, model, "companySector", "investorSector", "jobFinalMode", "applicationStatus");
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 
 		Collection<Object[]> applicationByStatusCollection = this.repository.getApplicationByStatus();
 
-		//		Collection<Object[]> jobByStatusCollection = this.repository.getJobByFinalMode();
+		Collection<Object[]> jobByStatusCollection = this.repository.getJobByFinalMode();
 
 		Map<String, Long> companyBySectorMap = new HashMap<String, Long>();
 		Map<String, Long> investorBySectorMap = new HashMap<String, Long>();
@@ -74,10 +74,10 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		}
 		result.setApplicationStatus(applicationByStatusMap);
 
-		//		for (Object[] obj : jobByStatusCollection) {
-		//			jobByFinalModeMap.put((Boolean) obj[0], (Long) obj[1]);
-		//		}
-		//		result.setJobFinalMode(jobByFinalModeMap);
+		for (Object[] obj : jobByStatusCollection) {
+			jobByFinalModeMap.put((Boolean) obj[0], (Long) obj[1]);
+		}
+		result.setJobFinalMode(jobByFinalModeMap);
 
 		return result;
 

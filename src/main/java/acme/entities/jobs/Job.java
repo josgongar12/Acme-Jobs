@@ -55,7 +55,7 @@ public class Job extends DomainEntity {
 
 	//	private JobStatus			status;
 
-	private boolean				finalMode;
+	private Boolean				finalMode;
 
 	@NotBlank
 	private String				descriptorDescription;

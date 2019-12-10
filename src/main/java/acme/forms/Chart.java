@@ -22,6 +22,6 @@ public class Chart implements Serializable {
 	Map<String, Long>				investorSector;
 
 	Map<ApplicationStatus, Long>	applicationStatus;
-	//	Map<, Long>				jobFinalMode;
+	Map<Boolean, Long>				jobFinalMode;
 
 }
