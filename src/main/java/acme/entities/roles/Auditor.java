@@ -18,6 +18,7 @@ public class Auditor extends UserRole {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes
+
 	@NotBlank
 	private String				firm;
 

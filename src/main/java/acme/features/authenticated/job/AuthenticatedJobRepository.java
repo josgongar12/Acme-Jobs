@@ -19,6 +19,6 @@ public interface AuthenticatedJobRepository extends AbstractRepository {
 	//	Collection<Job> findManyByEmployerId();
 
 	@Query("select j from Job j where j.finalMode = true and j.deadline > CURRENT_TIMESTAMP")
-	Collection<Job> findManyByEmployerId();
+	Collection<Job> findManyActives();
 
 }

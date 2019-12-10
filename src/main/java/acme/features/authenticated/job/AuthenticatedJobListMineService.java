@@ -43,7 +43,7 @@ public class AuthenticatedJobListMineService implements AbstractListService<Auth
 		assert request != null;
 
 		Collection<Job> result;
-		result = this.repository.findManyByEmployerId();
+		result = this.repository.findManyActives();
 
 		return result;
 	}
