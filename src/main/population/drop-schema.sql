@@ -9,10 +9,6 @@
 
     alter table `application` 
        drop 
-       foreign key `FKg5r46yek4bs3p6spef3r0n3se`;
-
-    alter table `application` 
-       drop 
        foreign key `FKoa6p4s2oyy7tf80xwc4r04vh6`;
 
     alter table `application` 
