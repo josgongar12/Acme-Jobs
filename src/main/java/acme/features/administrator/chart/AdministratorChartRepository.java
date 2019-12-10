@@ -27,6 +27,9 @@ public interface AdministratorChartRepository extends AbstractRepository {
 	//	Double ratioOfRejectedApplications();
 
 	//	@Query("select j.finalMode, count(j) from Job j group by j.finalMode order by j.finalMode")
-	//	Collection<Object[]> getJobByStatus();
+	//	Collection<Object[]> getJobByFinalMode();
+
+	@Query("select a.status, count(a) from Application a group by a.status order by a.status")
+	Collection<Object[]> getApplicationByStatus();
 
 }

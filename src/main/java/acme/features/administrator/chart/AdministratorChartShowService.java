@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.ApplicationStatus;
 import acme.forms.Chart;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -37,8 +38,8 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
-		request.unbind(entity, model, "companySector", "investorSector", "jobStatus");
+		//"jobStatus"
+		request.unbind(entity, model, "companySector", "investorSector", "applicationStatus");
 	}
 
 	@Override
@@ -49,12 +50,14 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		Collection<Object[]> companyBySectorCollection = this.repository.getCompanyBySector();
 		Collection<Object[]> investorBySectorCollection = this.repository.getInvestorBySector();
 
-		//
-		//		Collection<Object[]> jobByStatusCollection = this.repository.getJobByStatus();
+		Collection<Object[]> applicationByStatusCollection = this.repository.getApplicationByStatus();
+
+		//		Collection<Object[]> jobByStatusCollection = this.repository.getJobByFinalMode();
 
 		Map<String, Long> companyBySectorMap = new HashMap<String, Long>();
 		Map<String, Long> investorBySectorMap = new HashMap<String, Long>();
-		//		Map<String, Long> jobByStatusMap = new HashMap<String, Long>();
+		Map<ApplicationStatus, Long> applicationByStatusMap = new HashMap<ApplicationStatus, Long>();
+		Map<Boolean, Long> jobByFinalModeMap = new HashMap<Boolean, Long>();
 
 		for (Object[] obj : companyBySectorCollection) {
 			companyBySectorMap.put((String) obj[0], (Long) obj[1]);
@@ -66,12 +69,15 @@ public class AdministratorChartShowService implements AbstractShowService<Admini
 		}
 		result.setInvestorSector(investorBySectorMap);
 
-		//
+		for (Object[] obj : applicationByStatusCollection) {
+			applicationByStatusMap.put((ApplicationStatus) obj[0], (Long) obj[1]);
+		}
+		result.setApplicationStatus(applicationByStatusMap);
+
 		//		for (Object[] obj : jobByStatusCollection) {
-		//			jobByStatusMap.put((String) obj[0], (Long) obj[1]);
+		//			jobByFinalModeMap.put((Boolean) obj[0], (Long) obj[1]);
 		//		}
-		//		result.setJobStatus(jobByStatusMap);
-		//
+		//		result.setJobFinalMode(jobByFinalModeMap);
 
 		return result;
 
