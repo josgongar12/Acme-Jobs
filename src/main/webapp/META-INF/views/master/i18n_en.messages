@@ -96,6 +96,8 @@ master.menu.worker.list.application = Application list
 # master.menu.auditor ##########################################################
 
 master.menu.auditor= Auditor
+master.menu.auditor.list.job.yes = Job with auditor audit records
+master.menu.auditor.list.job.no = Job without auditor audit records
 
 
 # master.menu.user-account ####################################################

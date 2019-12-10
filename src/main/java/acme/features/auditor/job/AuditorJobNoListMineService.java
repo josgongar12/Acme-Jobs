@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.job;
+package acme.features.auditor.job;
 
 import java.util.Collection;
 
@@ -7,21 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Job;
+import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedJobListMineService implements AbstractListService<Authenticated, Job> {
+public class AuditorJobNoListMineService implements AbstractListService<Auditor, Job> {
 
-	// Internal state ---------------------------------------------------------------
+	// Attributes --------------------------------------------------------------------------------------
 
 	@Autowired
-	AuthenticatedJobRepository repository;
+	private AuditorJobRepository repository;
 
 
-	// AbstractListService<Employer, Job> interface ---------------------------------
+	// AbstractListService<Auditor, AuditRecord> interface ---------------------------------------------
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
@@ -34,7 +35,6 @@ public class AuthenticatedJobListMineService implements AbstractListService<Auth
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
 		request.unbind(entity, model, "reference", "deadline", "title");
 	}
 
@@ -43,7 +43,10 @@ public class AuthenticatedJobListMineService implements AbstractListService<Auth
 		assert request != null;
 
 		Collection<Job> result;
-		result = this.repository.findManyActives();
+		Principal principal;
+
+		principal = request.getPrincipal();
+		result = this.repository.findNoJobByAuditorId(principal.getActiveRoleId());
 
 		return result;
 	}
