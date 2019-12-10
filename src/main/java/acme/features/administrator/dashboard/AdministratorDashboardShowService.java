@@ -70,9 +70,17 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		entity.setAverageRewardActiveOffersMax(averageRewardActiveOffersMax);
 		entity.setStddevRewardActiveOffersMax(stddevRewardActiveOffersMax);
 
+		Double averageNumberofJobsPerEmployer = this.repository.averageNumberofJobsPerEmployer();
+		Double averageNumberofApplicationsPerWorker = this.repository.averageNumberofApplicationsPerWorker();
+		Double averageNumberofApplicationsPerEmployer = this.repository.averageNumberofApplicationsPerEmployer();
+
+		entity.setAverageNumberofJobsPerEmployer(averageNumberofJobsPerEmployer);
+		entity.setAverageNumberofApplicationsPerWorker(averageNumberofApplicationsPerWorker);
+		entity.setAverageNumberofApplicationsPerEmployer(averageNumberofApplicationsPerEmployer);
+
 		request.unbind(entity, model, "numberOfAnnouncements", "numberOfCompanyRecords", "numberOfInvestorRecords", "minimumRewardActiveRequests", "maximumRewardActiveRequests", "averageRewardActiveRequests", "stddevRewardActiveRequests",
 			"minimumRewardActiveOffersMin", "maximumRewardActiveOffersMin", "averageRewardActiveOffersMin", "stddevRewardActiveOffersMin", "minimumRewardActiveOffersMax", "maximumRewardActiveOffersMax", "averageRewardActiveOffersMax",
-			"stddevRewardActiveOffersMax");
+			"stddevRewardActiveOffersMax", "averageNumberofJobsPerEmployer", "averageNumberofApplicationsPerWorker", "averageNumberofApplicationsPerEmployer");
 	}
 
 	@Override
